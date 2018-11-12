@@ -9,7 +9,7 @@
     - name: create rg
       azure_rm_resourcegroup:
         name: "{{ rg }}"
-        location: "{{  location }}"
+        location: "{{ location }}"
     - name: create app svc
       azure_rm_webapp:
         resoruce_group: "{{ rg }}"
@@ -25,4 +25,4 @@
             version: "8"
             settings:
               java_container: tomcat
-              java_container_version: 8.5
+              java_container_version: "8.5"
