@@ -3,7 +3,7 @@
   connection: local
   tasks:
     - name: create a resource
-      azure_rm_resourcegorup:
+      azure_rm_resourcegroup:
         name: table3rmdevopsrg
         location: francecentral
         tags:
