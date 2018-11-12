@@ -13,7 +13,7 @@
     - name: create app svc
       azure_rm_webapp:
         resource_group: "{{ rg }}"
-        webapp_name: "{{ wa }}"
+        name: "{{ wa }}"
         plan:
           resource_group: "{{ rg }}"
           name: "{{ wa_plan }}"
