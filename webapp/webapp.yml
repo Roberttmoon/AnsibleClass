@@ -12,7 +12,7 @@
         location: "{{ location }}"
     - name: create app svc
       azure_rm_webapp:
-        resoruce_group: "{{ rg }}"
+        resource_group: "{{ rg }}"
         webapp_name: "{{ wa }}"
         plan:
           resource_group: "{{ rg }}"
