@@ -54,7 +54,8 @@
       ssh_password_enabled: false
       ssh_public_keys:
         - path: /home/azueuser/.ssh/authorized_keys
-          key_data: "{{ lookup('file','/home/azureops/.ssh/azure-training.pub')}}"
+          key_data: |
+            {{ lookup('file', '/home/azureops/.ssh/azure-training.pub')}}
       network_interfaces: *nic
       image:
         offer: UbuntuServer
