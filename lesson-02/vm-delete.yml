@@ -7,3 +7,4 @@
         name: table3-rm-rg-l02
         location: francecentral
         state: absent
+        force: true
