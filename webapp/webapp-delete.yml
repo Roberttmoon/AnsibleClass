@@ -4,7 +4,7 @@
   tasks:
     - name: Delete a resource
       azure_rm_resourcegroup:
-        name: table3-rm-rg-l03
+        name: table3-rm-resource-webapp
         location: francecentral
         state: absent
         force: true
