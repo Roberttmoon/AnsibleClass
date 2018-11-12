@@ -54,10 +54,10 @@
       ssh_password_enabled: false
       ssh_public_keys:
         - path: /home/azureuser/.ssh/authorized_keys
-          key_data: ahh
-      network_interfaces: myNIC
+          key_data: {{ lookup('file','/home/azureops/.ssh/id_rsa.pub'}}
+      network_interfaces: *nic
       image:
-        offer: UbuntuServer
+        offer: ubuntulst
         publisher: Canonical
         sku: '16.04'
         version: latest
