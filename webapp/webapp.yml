@@ -14,8 +14,8 @@
       azure_rm_webapp:
         resoruce_group: "{{ rg }}"
         webapp_name: "{{ wa }}"
-        paln:
-          resource_group: "{{ group }}"
+        plan:
+          resource_group: "{{ rg }}"
           name: "{{ wa_plan }}"
           is_linux: true
           sku: S1
