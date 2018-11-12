@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  connection: local
+  tasks:
+    - name: Delete a resource
+      azure_rm_resourcegroup:
+        name: table3-rm-rg-l02
+        location: francecentral
+        state: absent

@@ -47,17 +47,17 @@
       security_group: *sg
   - name: Create VM
     azure_rm_virtualmachine:
-      resource_group: myResourceGroup
+      resource_group: *rg
       name: &vm table3-rm-vm-l02
       vm_size: Standard_DS1_v2
       admin_username: azureuser
       ssh_password_enabled: false
       ssh_public_keys:
         - path: /home/azureuser/.ssh/authorized_keys
-          key_data: {{ lookup('file','/home/azureops/.ssh/id_rsa.pub'}}
+          key_data: "{{ lookup('file','/home/azureops/.ssh/id_rsa.pub'}}"
       network_interfaces: *nic
       image:
-        offer: ubuntulst
+        offer: UbuntuServer
         publisher: Canonical
-        sku: '16.04'
+        sku: '16.04-lst'
         version: latest
