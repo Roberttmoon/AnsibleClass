@@ -23,7 +23,7 @@
     admin_username: azureops
     ssh_password_enabled: false
     ssh_public_keys:
-      - path: /home/azueuser/.ssh/authorized_keys
+      - path: /home/azureops/.ssh/authorized_keys
         key_data: "{{ lookup('file','/var/lib/jenkins/secrets/ssh/table3-rm-vmkey.pub') }}"
     network_interfaces: "{{ nic }}-{{ vm.name }}"
     tags: "{{ vm.tags }}"
