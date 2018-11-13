@@ -24,7 +24,7 @@
     ssh_password_enabled: false
     ssh_public_keys:
       - path: /home/azueuser/.ssh/authorized_keys
-        key_data: "{{ lookup('file','/var/lib/jenkens/.ssh/azure-training.pub') }}"
+        key_data: "{{ lookup('file','/var/lib/jenkens/secrets/ssh/table3-rm-vmkey.pub') }}"
     network_interfaces: "{{ nic }}-{{ vm.name }}"
     tags: "{{ vm.tags }}"
     image:
