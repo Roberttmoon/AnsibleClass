@@ -24,11 +24,11 @@
         protocol: Tcp
         destination_port_range: 80
         access: Allow
-        priority: 1001
+        priority: 999
         direction: Inbound
       - name: HTTPS
         protocol: Tcp
         destination_port_range: 433
         access: Allow
-        priority: 1001
+        priority: 998
         direction: Inbound
