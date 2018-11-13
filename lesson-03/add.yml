@@ -4,13 +4,14 @@
   vars_files:
     - vars.yml
   tasks:
-    - loop:
+    - include_tasks: resource_group.yml
+      loop:
         - group_name: "{{ group_name }}"
           location: francecentral
       loop_control:
         loop_var: rg
-      include_tasks: resource_group.yml
-    - loop:
+    - include_tasks: network.yml
+      loop:
         - group_name: "{{ group_name }}"
           vnet_name: "{{ vnet }}"
           vnet_cidr: 10.0.0.0/16
@@ -18,7 +19,6 @@
           snet_cidr: 10.0.10.0/24
       loop_control:
         loop_var: net
-      include_tasks: network.yml
     - include_tasks: vm.yml
       loop:
         - name: 'vm-one'
