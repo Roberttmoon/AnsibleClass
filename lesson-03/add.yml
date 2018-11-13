@@ -21,6 +21,7 @@
       loop_control:
         loop_var: net
     - include_tasks: vm.yml
+      async: 10
       loop:
         - name: "{{ prefix }}vm1"
           tags:
