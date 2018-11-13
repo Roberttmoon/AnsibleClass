@@ -4,13 +4,15 @@
   vars_files:
     - vars.yml
   tasks:
-    - include_tasks: "{{ playbook_dir }}/../lib/resource_group.yml"
+    - include_tasks: |
+        {{ playbook_dir }}/../lib/resource_group.yml
       loop:
         - group_name: "{{ group_name }}"
           location: francecentral
       loop_control:
         loop_var: rg
-    - include_tasks: "{{ playbook_dir }}/../lib/network.yml"
+    - include_tasks: |
+        {{ playbook_dir }}/../lib/network.yml
       loop:
         - group_name: "{{ group_name }}"
           vnet_name: "{{ vnet }}"
