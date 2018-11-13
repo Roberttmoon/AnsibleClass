@@ -30,6 +30,11 @@
       notify:
         - restart apache
       become: true
+    - name: deploy TheApp
+      git:
+        repo: http://github.com/jwkidd3/theapp
+        dest: /var/www/awesome-app
+      become: true
     - name: Activates our virtualhost
       file:
         src: /etc/apache2/sites-available/awesome-app

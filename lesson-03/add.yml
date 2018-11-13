@@ -22,11 +22,11 @@
         loop_var: net
     - include_tasks: vm.yml
       loop:
-        - name: 'vm-one'
+        - name: "{{ prefix }}vm1"
           tags:
             machine_role: nginx
             owner: robert
-        - name: 'vm-two'
+        - name: "{{ prefix }}vm2"
           tags:
             machine_role: appache
             owner: robert
