@@ -14,12 +14,12 @@
         repo: http://github.com/jwkidd3/theapp
         dest: /var/www/awesome-app
       become: true
-    # - name: Push default virtual host configuration
-    #   copy:
-    #     src: files/awesome-app
-    #     dest: /etc/apache2/sites-available/awesome-app.conf
-    #     mode: 0640
-    #   become: true
+    - name: Push default virtual host configuration
+      copy:
+        src: files/awesome-app
+        dest: /etc/apache2/sites-available/awesome-app.conf
+        mode: 0640
+      become: true
     - name: Disable the default virtualhost
       file:
         dest: /etc/apache2/sites-enabled/000-default.conf
