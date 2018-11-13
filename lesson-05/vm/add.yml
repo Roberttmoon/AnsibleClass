@@ -1,0 +1,35 @@
+- name: Create WebApp Hosts
+  hosts: localhost
+  conneciton: local
+  tasks:
+    - include_tasks: vm_needs.yml
+      loop:
+        - name: &vm1 "{{ prefix }}-vm1"
+          public_ip_name: &pubip_vm1 "{{ publicip }}-vm1"
+          nic_name: &vmnic1 "{{ nic }}-vm1"
+          output_var: vm1
+        - name: &vm2 "{{ prefix }}-vm2"
+          public_ip_name: &pubip_vm2 "{{ publicip }}-vm2"
+          nic_name: &vmnic2 "{{ nic }}-vm1"
+        - name: &vm3 "{{ prefix }}-vm3"
+          public_ip_name: &pubip_vm3 "{{ publicip }}-vm3"
+          nic_name: &vmnic3 "{{ nic }}-vm1"
+      loop_control:
+        loop_var: nm_needs
+    - include_tasks: vm.yml
+      loop:
+        - name: *vm1
+          nic_name: *vmnic1
+          tags:
+            machine_role: haproxy
+            owner: robert
+        - name: *vm2
+          nic_name: *vmnic2
+          tags:
+            machine_role: apache
+            owner: robert
+        - name: *vm3
+          nic_name: *vmnic3
+          tags:
+            machine_role: apache
+            owner: robert

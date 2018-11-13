@@ -1,0 +1,17 @@
+- name: Create public IP address
+  azure_rm_publicipaddress:
+    resource_group: &rg "{{ group_name }}"
+    allocation_method: Static
+    name: "{{ vm_needs.public_ip_name }}"
+  register: "{{ output_var }}"
+- name: Output public IP 
+  debug:
+    msg: "Public IP is {{ output_var.state.ip_address }}."
+- name: Create virtual network inteface card
+  azure_rm_networkinterface:
+    resource_group: *rg 
+    name: "{{ vm_needs.nic_name }}"
+    virtual_network: "{{ vnet }}"
+    subnet: "{{ subnet }}"
+    public_ip_name: "{{ nm_needs.public_ip_name }}"
+    security_group: "{{ security_group }}"

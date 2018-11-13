@@ -1,0 +1,16 @@
+- name: Create WebApp network
+  hosts: localhost
+  connection: local
+  tasks:
+    - include_tasks: resource_group.yml
+      vars:
+        group_name: "{{ group_name }}"
+        location: "{{ location }}"
+    - include_tasks: network.yml
+      vars:
+        group_name: "{{ group_name }}"
+        vnet_name: "{{ vnet }}"
+        vnet_cidr: 10.0.0.0/16
+        snet_name: "{{ subnet }}"
+        snet_cidr: 10.0.10.0/24
+        security_group: "{{ security_group }}"

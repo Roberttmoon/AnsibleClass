@@ -20,17 +20,22 @@
           security_group: "{{ security_group }}" 
       loop_control:
         loop_var: net
+    - include_tasks: vmneeds.yml
+      loop:
+        - name: "{{ prefix }}-vm1"
+        - name: "{{ prefix }}-vm2"
+        - name: "{{ prefix }}-vm3" 
     - include_tasks: vm.yml
       loop:
-        - name: "{{ prefix }}vm1"
+        - name: "{{ prefix }}-vm1"
           tags:
             machine_role: haproxy
             owner: robert
-        - name: "{{ prefix }}vm2"
+        - name: "{{ prefix }}-vm2"
           tags:
             machine_role: apache
             owner: robert
-        - name: "{{ prefix }}vm3"
+        - name: "{{ prefix }}-vm3"
           tags:
             machine_role: apache
             owner: robert

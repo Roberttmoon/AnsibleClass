@@ -9,7 +9,7 @@
     ssh_public_keys:
       - path: /home/azureops/.ssh/authorized_keys
         key_data: "{{ lookup('file','/var/lib/jenkins/secrets/ssh/table3-rm-vmkey.pub') }}"
-    network_interfaces: "{{ nic }}-{{ vm.name }}"
+    network_interfaces: "{{ vm.nic_name }}"
     tags: "{{ vm.tags }}"
     image:
       offer: UbuntuServer

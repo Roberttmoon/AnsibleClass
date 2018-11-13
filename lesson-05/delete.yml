@@ -1,0 +1,11 @@
+- hosts: localhost
+  connection: local
+  vars_files:
+    - vars.yml
+  tasks:
+    - name: Delete a resource
+      azure_rm_resourcegroup:
+        name: "{{ group_name }}"
+        location: francecentral
+        state: absent
+        force: true

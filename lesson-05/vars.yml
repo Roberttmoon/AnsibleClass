@@ -1,0 +1,12 @@
+# base
+prefix: table3-rm
+location: francecentral
+resource_group: "{{ prefix }}-resource_group"
+
+# network
+vnet: "{{ prefix }}-vnet"
+subnet: "{{ prefix }}-subnet"
+
+# vm info
+nic: "{{ prefix }}-nic"
+publicip: "{{ prefix }}-publicip"
