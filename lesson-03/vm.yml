@@ -18,7 +18,7 @@
 - name: Create VM
   azure_rm_virtualmachine:
     resource_group: "{{ group_name }}"
-    name: "{{ vm }}-{{ vm.name }}"
+    name: "{{ vm.name }}"
     vm_size: Standard_DS1_v2
     admin_username: azureops
     ssh_password_enabled: false
