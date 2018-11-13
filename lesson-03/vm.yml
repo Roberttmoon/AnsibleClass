@@ -16,7 +16,7 @@
     public_ip_name: "{{ pubip }}-{{ vm.name }}"
     security_group: "{{ security_group }}"
 - name: Create VM
-  async: 10
+  async: 1200
   azure_rm_virtualmachine:
     resource_group: "{{ group_name }}"
     name: "{{ vm.name }}"
