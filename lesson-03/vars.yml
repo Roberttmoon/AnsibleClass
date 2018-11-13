@@ -1,6 +1,6 @@
 prefix: table3-rm
 location: francecentral
-group_name: "{{ prefix }}-resourcegroup"
+group_name: "{{ prefix }}-awesomeapp"
 vnet: "{{ prefix }}-vnet"
 security_group: "{{ prefix }}-secgroup"
 subnet: "{{ prefix }}-subnet"

@@ -24,15 +24,15 @@
       loop:
         - name: "{{ prefix }}vm1"
           tags:
-            machine_role: nginx
+            machine_role: haproxy
             owner: robert
         - name: "{{ prefix }}vm2"
           tags:
-            machine_role: appache
+            machine_role: apache
             owner: robert
         - name: "{{ prefix }}vm3"
           tags:
-            machine_role: appache
+            machine_role: apache
             owner: robert
       loop_control:
         loop_var: vm
