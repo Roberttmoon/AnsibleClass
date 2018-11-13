@@ -2,7 +2,7 @@
   azure_rm_virtualnetwork:
     resource_group: "{{ net.group_name }}"
     name: "{{ net.vnet_name }}"
-    address_prefixes: "{{ net.net_cidr }}"
+    address_prefixes: "{{ net.vnet_cidr }}"
 - name: Add subnet
   azure_rm_subnet:
     resource_group: "{{ net.group_name }}"
