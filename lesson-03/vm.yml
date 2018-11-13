@@ -7,17 +7,6 @@
 - name: Output public IP 
   debug:
     msg: "Public IP is {{ output_ip_address.state.ip_address }}."
-- name: Create Network Security Group that allows SSH
-  azure_rm_securitygroup:
-    resource_group: "{{ group_name }}"
-    name: "{{ security_group }}-{{ vm.name }}"
-    rules:
-      - name: SSH
-        protocol: Tcp
-        destination_port_range: 22
-        access: Allow
-        priority: 1001
-        direction: Inbound
 - name: Create virtual network inteface card
   azure_rm_networkinterface:
     resource_group: "{{ group_name }}"

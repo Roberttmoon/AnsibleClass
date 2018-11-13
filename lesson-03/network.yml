@@ -8,4 +8,27 @@
     resource_group: "{{ net.group_name }}"
     virtual_network: "{{ net.vnet_name }}"
     name: "{{ net.snet_name }}"
-    address_prefix: "{{ net.subnet_cidr }}"
+    address_prefix: "{{ net.snet_cidr }}"
+- name: Create Network Security Group that allows SSH
+  azure_rm_securitygroup:
+    resource_group: "{{ net.group_name }}"
+    name: "{{ net.security_group }}"
+    rules:
+      - name: SSH
+        protocol: Tcp
+        destination_port_range: 22
+        access: Allow
+        priority: 1001
+        direction: Inbound
+      - name: HTTP
+        protocol: Tcp
+        destination_port_range: 80
+        access: Allow
+        priority: 1001
+        direction: Inbound
+      - name: HTTPS
+        protocol: Tcp
+        destination_port_range: 433
+        access: Allow
+        priority: 1001
+        direction: Inbound
