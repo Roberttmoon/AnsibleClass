@@ -16,7 +16,7 @@
           vnet_cidr: 10.0.0.0/16
           snet_name: "{{ subnet }}"
           snet_cidr: 10.0.10.0/24
-      loop_contorl:
+      loop_control:
         loop_var: net
       include_tasks: "{{ playbook_dir }}/../lib/network.yml"
     - include_tasks: vm.yml
