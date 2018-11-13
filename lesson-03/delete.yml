@@ -4,7 +4,7 @@
   tasks:
     - name: Delete a resource
       azure_rm_resourcegroup:
-        name: table3-rm-rg-l03
+        name: "{{ group_name }}"
         location: francecentral
         state: absent
         force: true

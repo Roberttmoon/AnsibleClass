@@ -1,0 +1,8 @@
+prefix: table3-rm
+location: francecentral
+group_name: "{{ prefix }}-resourcegroup"
+vnet: "{{ prefix }}-vnet"
+security_group: "{{ prefix }}-secgroup"
+subnet: "{{ prefix }}-subnet"
+nic: "{{ prefix }}-nic"
+pubip: "{{ prefix }}-publicip"
