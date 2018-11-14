@@ -14,7 +14,7 @@ resource "azurerm_network_interface" "nic" {
 
   ip_configuration {
     name                          = "testconfiguration1"
-    subnet_id                     = "${azurerm_subnet.internal.id}"
+    subnet_id                     = "${azurerm_subnet.mysub.id}"
     private_ip_address_allocation = "dynamic"
   }
 }
