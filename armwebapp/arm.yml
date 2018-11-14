@@ -1,0 +1,21 @@
+- hosts: localhost
+  gather_facts: yes
+  connection: local
+  vars:
+    rg: table3-rm-webapp3-rg
+  tasks:
+    - name: create a resource
+      azure_rm_resourcegroup:
+        name: "{{ rg }}"
+        location: francecentral
+        tags:
+          testing: testing
+          owner: robert
+          table: table3
+    - name: Arm Deploy
+      azure_rm_deployment:
+        state: present
+        resource_group_name: "{{ rg }}"
+        location: francecentral
+        template_link: https://raw.githubusercontent.com/Roberttmoon/ansible-class_webapp/init/template.json
+        parameters_link: https://raw.githubusercontent.com/Roberttmoon/ansible-class_webapp/init/parameters.json
