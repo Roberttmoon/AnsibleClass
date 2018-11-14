@@ -5,7 +5,7 @@ provider "azurerm" {
   tenant_id       = "${var.tenant}"
 }
 
-resource "azurerm_resource_group" "newgroup" {
+resource "azurerm_resource_group" "new_group" {
   name     = "${format("%v-terraform-rg", var.prefix)}"
   location = "${var.location}"
 }
