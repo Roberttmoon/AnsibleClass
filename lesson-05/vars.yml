@@ -1,11 +1,12 @@
 # base
-prefix: table3-rm
+prefix: table3-rm-murmahgerd
 location: francecentral
 resource_group: "{{ prefix }}-resource_group"
 
 # network
 vnet: "{{ prefix }}-vnet"
 subnet: "{{ prefix }}-subnet"
+security_group: "{{ prefix }}-security-group"
 
 # vm info
 nic: "{{ prefix }}-nic"
