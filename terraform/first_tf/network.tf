@@ -10,7 +10,7 @@ resource "azurerm_virtual_network" "mynet" {
   }
 }
 
-resource "arzurerm_subnet" "mysub" {
+resource "azurerm_subnet" "mysub" {
   resource_group_name  = "${azurerm_resource_group.new_group.name}"
   name                 = "${format("%v-terraform-vnet", var.prefix)}"
   virtual_network_name = "${azurerm_virtual_network.mynet.name}"
