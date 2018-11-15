@@ -1,0 +1,5 @@
+subscription_id = "0000"
+client_id = "0000"
+secret = "0000"
+tenant = "0000"
+location = "0000"
