@@ -8,7 +8,7 @@ resource "azurerm_virtual_machine" "main" {
   vm_size               = "Standard_DS1_v2"
 
   storage_os_disk = {
-    name              = "${format("%v-terraform-vm-storage", var.prefix)}"
+    name              = "table3rmvmstorage"
     caching           = "ReadWrite"
     create_option     = "FromImage"
     managed_disk_type = "Premium_LRS"
@@ -65,7 +65,7 @@ resource "random_id" "boot_diag_id" {
 }
 
 resource "azurerm_storage_account" "diag_storage" {
-  name                = "${format("table3rmdiag%v", random_id.boot_diag_id.hex)}"
+  name                = "${substr(format("table3rmdiag%v", random_id.boot_diag_id.hex), 0, 24)}"
   resource_group_name = "${azurerm_resource_group.new_group.name}"
   location            = "${var.location}"
   
