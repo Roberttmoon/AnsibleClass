@@ -17,6 +17,6 @@ resource "azurerm_app_service" "app" {
   app_service_plan_id = "${azurerm_app_service_plan.app_sp.id}"
 
   depends_on = [
-    "azurerm_app_service_plan.app_sp"
+    "azurerm_app_service_plan.app_sp",
   ]
 }
