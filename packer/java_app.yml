@@ -1,0 +1,23 @@
+- hosts: localhost
+  connection: local
+  tasks:
+    - name: Installs java app
+      apt:
+        pkg: "{{item}}"
+        state: latest
+        update_cache: true
+      with_items:
+       - git
+      become: true
+    - name: Mk dest dir
+      file: 
+        path: /app 
+        state: directory
+        mode: "u=rwx,g=rx,o=rwx"
+      become: true
+    - name: Push application
+      copy:
+        src: /home/azureops/packer/swagger-1.0.0.jar
+        dest: /app/swagger.jar 
+        mode: 0640
+      become: true
